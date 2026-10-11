@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The English Renaissance: Humanism, Poetics, and the Faustian Dilemma</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --subcard-bg: #21262d;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-bright: #f0f6fc;
+            --text-muted: #8b949e;
+            --accent-gold: #d29922;
+            --accent-cyan: #39c5cf;
+            --accent-blue: #58a6ff;
+            --accent-purple: #bc8cff;
+            --accent-crimson: #f85149;
+            --accent-emerald: #3fb950;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.65;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 920px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .header-card {
+            background: linear-gradient(180deg, rgba(22, 27, 34, 0.95) 0%, rgba(13, 17, 23, 0.9) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 40px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan), var(--accent-purple));
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(210, 153, 34, 0.15);
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(210, 153, 34, 0.35);
+        }
+
+        .header-card h1 {
+            color: var(--text-bright);
+            font-size: 2.3rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        .header-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 14px;
+        }
+
+        .section-title {
+            color: var(--accent-cyan);
+            font-size: 1.45rem;
+            font-weight: 700;
+            font-family: "Georgia", serif;
+        }
+
+        .svg-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+        }
+
+        .exercise {
+            background-color: var(--subcard-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .exercise-title {
+            color: var(--text-bright);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .instruction {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .instruction em {
+            color: var(--accent-gold);
+            font-style: normal;
+        }
+
+        .theory-block {
+            background: rgba(188, 140, 255, 0.05);
+            border-left: 4px solid var(--accent-purple);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.97rem;
+            line-height: 1.7;
+            color: #d1d5db;
+        }
+
+        .theory-block h4 {
+            color: var(--accent-purple);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .theory-block p {
+            margin-bottom: 10px;
+        }
+
+        .theory-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .visual-curiosity-box {
+            background: #11151c;
+            border: 1px dashed var(--accent-gold);
+            border-radius: 8px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .curiosity-svg {
+            width: 72px;
+            height: 72px;
+            stroke: var(--accent-gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .vocab-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .vocab-table th, .vocab-table td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .vocab-table th {
+            color: var(--accent-blue);
+            background-color: rgba(88, 166, 255, 0.08);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .vocab-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .vocab-term {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-family: "Georgia", serif;
+        }
+
+        .ielts-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--accent-blue);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+            font-family: sans-serif;
+            font-weight: 500;
+        }
+
+        .text-passage {
+            background: #0f141c;
+            border-left: 4px solid var(--accent-blue);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            font-family: "Georgia", serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #dbe4ee;
+        }
+
+        .text-passage p {
+            margin-bottom: 16px;
+        }
+
+        .text-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .poem-extract {
+            font-style: italic;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
+            margin: 14px 0;
+            color: #cbd5e1;
+            font-size: 0.96rem;
+        }
+
+        ul, ol {
+            padding-left: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        li {
+            font-size: 0.96rem;
+        }
+
+        .input-inline {
+            background: #0d1117;
+            border: 1px solid var(--border-color);
+            color: var(--text-bright);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.93rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .input-inline:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(57, 197, 207, 0.15);
+        }
+
+        .input-inline.correct {
+            border-color: var(--accent-emerald) !important;
+            background-color: rgba(63, 185, 80, 0.1) !important;
+        }
+
+        .input-inline.incorrect {
+            border-color: var(--accent-crimson) !important;
+            background-color: rgba(248, 81, 73, 0.1) !important;
+        }
+
+        textarea.essay-input {
+            width: 100%;
+            background: #0d1117;
+            border: 1px solid var(--border-color);
+            color: var(--text-bright);
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            resize: vertical;
+            min-height: 130px;
+            line-height: 1.6;
+        }
+
+        textarea.essay-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+        }
+
+        .btn-check {
+            align-self: flex-start;
+            background-color: #21262d;
+            color: var(--text-bright);
+            border: 1px solid var(--border-color);
+            padding: 8px 18px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn-check:hover {
+            background-color: #30363d;
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .feedback-msg {
+            font-size: 0.88rem;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .feedback-msg.show {
+            display: block;
+        }
+
+        .feedback-msg.good {
+            color: var(--accent-emerald);
+        }
+
+        .feedback-msg.bad {
+            color: var(--accent-crimson);
+        }
+
+        .status-tracker {
+            font-size: 0.82rem;
+            color: var(--accent-gold);
+            text-align: right;
+            margin-bottom: -10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-card">
+        <span class="badge">Advanced Literature & IELTS Academic Register</span>
+        <h1>The English Renaissance</h1>
+        <p>From Medieval Theocentrism to Tudor Humanism, the Birth of English Poetics, and Christopher Marlowe’s Faustian Titanism.</p>
+    </div>
+
+    <!-- 1. WARM UP -->
+    <div class="section-card">
+        <div class="section-header">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <div class="section-title">1. Historical Context: The Paradigm Shift (Warm-Up)</div>
+        </div>
+
+        <div class="theory-block">
+            <h4>Cultural Shift: Theocentrism to Anthropocentrism</h4>
+            <p>The English Renaissance marked a radical transition from the <b>medieval theocentric model</b> (wherein earthly existence was viewed primarily as a fleeting trial subordinate to post-mortem salvation and ecclesiastical authority) to <b>civic humanism and anthropocentrism</b> (which elevated human potential, empirical enquiry, and terrestrial legacy).</p>
+            <p>Triggered by the arrival of the printing press in Westminster (William Caxton, 1476) and accelerated by Henry VIII’s Reformation, the vernacular English tongue was transformed from a coarse provincial dialect into a versatile vessel capable of intellectual discourse, theological debate, and high aesthetic experimentation.</p>
+        </div>
+
+        <div class="visual-curiosity-box">
+            <svg class="curiosity-svg" viewBox="0 0 64 64">
+                <circle cx="32" cy="32" r="28"/>
+                <ellipse cx="32" cy="32" rx="28" ry="12"/>
+                <ellipse cx="32" cy="32" rx="12" ry="28"/>
+                <line x1="32" y1="4" x2="32" y2="60"/>
+                <line x1="4" y1="32" x2="60" y2="32"/>
+            </svg>
+            <div>
+                <strong style="color: var(--accent-gold); font-size: 1.05rem;">The Iconography of Discovery: Armillary Spheres & Cabinets of Curiosities</strong>
+                <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 4px;">
+                    During Elizabeth I's reign, courtiers were portrayed not with relics of saints, but surrounded by cartographic globes, celestial astrolabes, and mathematical instruments. The Renaissance <em>Wunderkammer</em> (cabinet of curiosities) manifested a voracious imperial appetite to categorize, decipher, and conquer both nature and classical antiquity.
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">
+                Exercise 1.1: Philosophical Foundations (IELTS C1 Lexical Match)
+            </div>
+            <div class="instruction">Complete the contrasts between Medieval Scholasticism and Renaissance Humanism using: <em>[providential, empirical, vernacular, dogmatic, terrestrial]</em></div>
+            <ol>
+                <li>Medieval education was largely <input type="text" class="input-inline" data-answer="dogmatic" placeholder="...">, grounded in clerical authority and adherence to Latin scriptures.</li>
+                <li>The Humanist project prioritized <input type="text" class="input-inline" data-answer="empirical" placeholder="..."> observation of the natural world and classical civic virtue.</li>
+                <li>Instead of treating mortal life merely as preparation for eternity, Renaissance thinkers celebrated <input type="text" class="input-inline" data-answer="terrestrial" placeholder="..."> achievement and individual agency.</li>
+                <li>The invention of movable type standardized the English <input type="text" class="input-inline" data-answer="vernacular" placeholder="...">, democratizing secular literature beyond monastic libraries.</li>
+                <li>While medieval tragedies ascribed human suffering exclusively to <input type="text" class="input-inline" data-answer="providential" placeholder="..."> retribution, Renaissance drama interrogated human choice and moral conflict.</li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 1.2: Comparative Analytical Discourse</div>
+            <div class="instruction">Formulate a succinct academic thesis (2–3 sentences) addressing the question: <em>How did Henry VIII’s break with Rome simultaneously bolster national secular power and create an existential identity crisis for Tudor intellectuals?</em></div>
+            <textarea class="essay-input" id="warmup-discourse" placeholder="Draft your synthesis using C1 linkers (e.g., paradoxically, on the one hand, catalyst for, seismic shift)..."></textarea>
+        </div>
+    </div>
+
+    <!-- 2. VOCABULARY -->
+    <div class="section-card">
+        <div class="section-header">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+            <div class="section-title">2. Target Academic Vocabulary & Critical Lexicon</div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Academic & Poetic Glossary (C1–C2 Level)</div>
+            <table class="vocab-table">
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Academic Definition</th>
+                        <th>Russian Equivalent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="vocab-term">Anthropocentrism</span> <span class="ielts-tag">IELTS C2</span></td>
+                        <td>The philosophical interpretation of the universe that regards humankind as the primary focal entity, rejecting rigid theocentric hierarchies.</td>
+                        <td>Антропоцентризм</td>
+                    </tr>
+                    <tr>
+                        <td><span class="vocab-term">Petrarchan Conceit</span> <span class="ielts-tag">Lit Theory</span></td>
+                        <td>An ingenious, elaborate metaphor or sustained hyperbolic parallel comparing the beloved (or lover's torment) to striking physical phenomena.</td>
+                        <td>Петраркистская метафора / кончетто</td>
+                    </tr>
+                    <tr>
+                        <td><span class="vocab-term">Volta</span> <span class="ielts-tag">Poetics</span></td>
+                        <td>The rhetorical or tonal turning point in a sonnet, typically occurring between octave and sestet, or before the final rhyming couplet.</td>
+                        <td>Вольта (поворот мысли в сонете)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="vocab-term">Blank Verse</span> <span class="ielts-tag">Metrics</span></td>
+                        <td>Unrhymed iambic pentameter ($5$ metric feet per line: da-DUM da-DUM), simulating the natural cadence of elevated human speech.</td>
+                        <td>Белый стих (шекспировский метр)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="vocab-term">Hubris</span> <span class="ielts-tag">IELTS C2</span></td>
+                        <td>Overweening pride, insolence, or intellectual arrogance that incites an individual to defy moral, metaphysical, or theological constraints.</td>
+                        <td>Хюбрис / гордыня, самонадеянность</td>
+                    </tr>
+                    <tr>
+                        <td><span class="vocab-term">Titanism</span> <span class="ielts-tag">Philosophy</span></td>
+                        <td>The philosophical posture of rebellion against cosmic limitations, pursuing boundless power, knowledge, and self-apotheosis.</td>
+                        <td>Титанизм (ренессансный культ мощи)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="vocab-term">Courtier</span> <span class="ielts-tag">History</span></td>
+                        <td>An educated aristocrat who attended the royal court, characterized by polished wit, diplomacy, dissimulation, and aesthetic patronage.</td>
+                        <td>Придворный (эпохи Ренессанса)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 2.1: Contextual Register Replacement</div>
+            <div class="instruction">Replace the colloquial phrases in bold with the most precise critical terms: <em>[blank verse, petrarchan conceit, volta, hubris, courtier]</em></div>
+            <ol>
+                <li>Wyatt compared the aloof Anne Boleyn to an untamable, royal deer, employing an elaborate <b>dramatic and fancy comparison</b>: <input type="text" class="input-inline" data-answer="petrarchan conceit" placeholder="...">.</li>
+                <li>In Sonnet 130, the poem's argument radically shifts at line 9, marking the structural <b>moment where the perspective pivots</b>: <input type="text" class="input-inline" data-answer="volta" placeholder="...">.</li>
+                <li>Marlowe abandoned rigid end-rhymes, deploying thunderous <b>unrhymed five-beat lines</b> that energized the London stage: <input type="text" class="input-inline" data-answer="blank verse" placeholder="...">.</li>
+                <li>Faustus is consumed not by petty greed, but by colossal <b>reckless overconfidence and tragic arrogance</b>: <input type="text" class="input-inline" data-answer="hubris" placeholder="...">.</li>
+                <li>Sir Philip Sidney embodied Castiglione’s ideal of the versatile, eloquent <b>member of the royal retinue</b>: <input type="text" class="input-inline" data-answer="courtier" placeholder="...">.</li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 2.2: Academic Collocations (IELTS Writing Task 2 Lexis)</div>
+            <div class="instruction">Complete the collocations frequently encountered in academic essays on early modern history:</div>
+            <ol>
+                <li>to challenge the prevailing theological _________ <em>(dogma / whim)</em>: <input type="text" class="input-inline" data-answer="dogma" placeholder="..."></li>
+                <li>to embark on a path of self-_________ <em>(destruction / dismantling)</em>: <input type="text" class="input-inline" data-answer="destruction" placeholder="..."></li>
+                <li>the rapid _________ of printing technology <em>(proliferation / expansionism)</em>: <input type="text" class="input-inline" data-answer="proliferation" placeholder="..."></li>
+                <li>to embody the delicate art of courtly _________ <em>(dissimulation / fiction)</em>: <input type="text" class="input-inline" data-answer="dissimulation" placeholder="..."></li>
+                <li>to cross the threshold of permissible intellectual _________ <em>(enquiry / question)</em>: <input type="text" class="input-inline" data-answer="enquiry" placeholder="..."></li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 2.3: Structural Word Transformation</div>
+            <div class="instruction">Form a suitable derived academic word from the base in capitals:</div>
+            <ol>
+                <li>The Reformation served as an unprecedented _________ for linguistic national pride. [<b>CATALYSE</b>] &rarr; <input type="text" class="input-inline" data-answer="catalyst" placeholder="..."></li>
+                <li>Renaissance poetry reflects an acute awareness of the _________ of mortal beauty and status. [<b>TRANSITORY</b>] &rarr; <input type="text" class="input-inline" data-answer="transitoriness" placeholder="..."></li>
+                <li>Marlowe’s dramatic language possessed an _________ rhythm unmatched by his contemporaries. [<b>EXHILARATE</b>] &rarr; <input type="text" class="input-inline" data-answer="exhilarating" placeholder="..."></li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+    </div>
+
+    <!-- 3. READING & POETICS -->
+    <div class="section-card">
+        <div class="section-header">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.5 1 5.5v15.5c1.45-1.1 3.55-1.5 5.5-1.5s4.05.4 5.5 1.5c1.45-1.1 3.55-1.5 5.5-1.5 1.17 0 2.39.15 3.5.5V5zm-2 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
+            <div class="section-title">3. Close Reading: Lyric, Allegory, and Tragedy</div>
+        </div>
+
+        <div class="theory-block">
+            <h4>From Italian Borrowing to National Epic</h4>
+            <p><strong>Thomas Wyatt & Henry Howard, Earl of Surrey:</strong> Introduced the Petrarchan model to England. Italian sonnets relied on an octave ($abba\ abba$) followed by a sestet ($cde\ cde$). Because English contains fewer rhyming word-endings than Italian, Surrey adapted the rhyme scheme to three quatrains and a concluding rhyming couplet ($abab\ cdcd\ efef\ gg$), generating an epigrammatic punchline at the end.</p>
+            <p><strong>Edmund Spenser:</strong> Composed <em>The Faerie Queene</em>, marrying Arthurian chivalry with Christian Protestant allegory and political panegyric for Elizabeth I (personified as the divine maiden Gloriana). He invented the 9-line <b>Spenserian Stanza</b>: eight iambic pentameters concluded by an Alexandrine (iambic hexameter, 12 syllables) rhyming $ababbcbcc$.</p>
+        </div>
+
+        <div class="text-passage">
+            <p style="font-weight: 600; color: var(--accent-gold); font-size: 1.05rem;">Text Fragment A: Thomas Wyatt — <em>Whoso List to Hunt</em> (c. 1530s)</p>
+            <div class="poem-extract">
+                Whoso list to hunt, I know where is an hind,<br>
+                But as for me, hélas, I may no more.<br>
+                The vain travail hath wearied me so sore,<br>
+                I am of them that farthest cometh behind.<br>
+                Yet may I by no means my wearied mind<br>
+                Draw from the deer, but as she fleeth afore<br>
+                Fainting I follow. I leave off therefore,<br>
+                Sithens in a net I seek to hold the wind.<br>
+                Who list her hunt, I put him out of doubt,<br>
+                As well as I may spend his time in vain.<br>
+                And graven with diamonds in letters plain<br>
+                There is written, her fair neck round about:<br>
+                <em>Noli me tangere</em>, for Caesar’s I am,<br>
+                And wild for to hold, though I seem tame.
+            </div>
+
+            <p style="font-weight: 600; color: var(--accent-gold); font-size: 1.05rem; margin-top: 24px;">Text Fragment B: Christopher Marlowe — <em>Doctor Faustus</em> (The Final Soliloquy)</p>
+            <div class="poem-extract">
+                Stand still, you ever-moving spheres of heaven,<br>
+                That time may cease, and midnight never come!<br>
+                Fair Nature’s eye, rise, rise again, and make<br>
+                Perpetual day; or let this hour be but<br>
+                A year, a month, a week, a natural day,<br>
+                That Faustus may repent and save his soul!<br>
+                <em>O lente, lente currite noctis equi!</em><br>
+                The stars move still, time runs, the clock will strike,<br>
+                The devil will come, and Faustus must be damned.<br>
+                O, I’ll leap up to my God! Who pulls me down?<br>
+                See, see, where Christ’s blood streams in the firmament!
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 3.1: Close Analytical Reading (Text A & B)</div>
+            <div class="instruction">Answer the critical questions based on poetic craft:</div>
+            <ol>
+                <li>In Wyatt's poem, the metaphor <em>"in a net I seek to hold the wind"</em> illustrates the absolute <input type="text" class="input-inline" data-answer="futility" placeholder="abstract noun..."> of pursuing the royal lady.</li>
+                <li>The inscription <em>"Noli me tangere, for Caesar’s I am"</em> serves as a direct political allusion to King <input type="text" class="input-inline" data-answer="Henry VIII" placeholder="historical figure...">, warning courtiers away from Anne Boleyn.</li>
+                <li>In Marlowe's excerpt, Faustus desperately quotes Ovid's line <em>"O lente, lente currite noctis equi"</em>. While Ovid used this phrase to prolong a night of passionate love, Faustus uses it to delay <input type="text" class="input-inline" data-answer="damnation" placeholder="metaphysical fate...">.</li>
+                <li>Unlike medieval morality plays, Faustus is unable to repent because his will is paralyzed by despair and intellectual <input type="text" class="input-inline" data-answer="hubris" placeholder="Greek tragic term...">.</li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 3.2: Synthesis & Metrical Distinction</div>
+            <div class="instruction">Match the literary innovator with their contribution: <em>[Wyatt, Sidney, Spenser, Marlowe]</em></div>
+            <ol>
+                <li>Transformed dramatic verse by replacing clunky rhymed couplets with monumental blank verse ("the mighty line"): <input type="text" class="input-inline" data-answer="Marlowe" placeholder="..."></li>
+                <li>Penned <em>The Defence of Poesy</em>, arguing that the poet creates a transcendent "golden world" superior to fallen nature: <input type="text" class="input-inline" data-answer="Sidney" placeholder="..."></li>
+                <li>Developed an intricate 9-line stanza concluding with an Alexandrine for his Protestant dynastic epic: <input type="text" class="input-inline" data-answer="Spenser" placeholder="..."></li>
+                <li>Adapted Petrarch’s Italian lyric architecture to expose the paranoid, dangerous realities of the Tudor court: <input type="text" class="input-inline" data-answer="Wyatt" placeholder="..."></li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+    </div>
+
+    <!-- 4. GRAMMAR & ADVANCED STRUCTURES -->
+    <div class="section-card">
+        <div class="section-header">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+            <div class="section-title">4. Grammar Theory & Discourse Syntax: Inversion & Cleft Sentences</div>
+        </div>
+
+        <div class="theory-block">
+            <h4>Stylistic Emphasis: Negative Inversion & Subjunctive Constructions</h4>
+            <p>To convey dramatic urgency, philosophical solemnity, and elevate written register (essential for IELTS Academic Band 8.0+), early modern and formal academic writers employ <b>Negative / Restrictive Inversion</b>.</p>
+            <p><strong>Formula:</strong> <code>Negative Adverbial (Seldom, Scarcely, No sooner, Not only) + Auxiliary Verb + Subject + Main Verb</code></p>
+            <p><em>Example:</em> "Hardly <b>had Faustus signed</b> the demonic covenant when dread consumed him."</p>
+            <p><strong>Cleft Sentences for Thematic Focus:</strong> <code>It was + [Focus] + that/who...</code> or <code>What + [Clause] + was/is...</code><br>
+            <em>Example:</em> "<b>What terrified</b> early modern audiences <b>was</b> not the devil's appearance, but the protagonist's refusal of grace."</p>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 4.1: Negative Inversion Transformation</div>
+            <div class="instruction">Rewrite each analytical sentence starting with the prompt in bold:</div>
+            <ol>
+                <li>Wyatt had no sooner arrived in court than he realized the lethal hazards of royal intrigue.<br>
+                <strong>No sooner</strong> <input type="text" class="input-inline" style="width: 75%;" data-answer="had Wyatt arrived in court than" placeholder="... he realized the lethal hazards..."></li>
+                
+                <li>Marlowe’s Faustus rarely questions the terrifying cost of his magical power until midnight approaches.<br>
+                <strong>Rarely</strong> <input type="text" class="input-inline" style="width: 75%;" data-answer="does Marlowe's Faustus question" placeholder="... the terrifying cost of his magical power..."></li>
+
+                <li>The Tudor monarchs not only centralized administrative power, but they also dictated national religious conscience.<br>
+                <strong>Not only</strong> <input type="text" class="input-inline" style="width: 75%;" data-answer="did the Tudor monarchs centralize" placeholder="... administrative power, but they also..."></li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 4.2: Cleft Sentences for Academic Weight</div>
+            <div class="instruction">Transform the statements into Cleft Sentences (starting with <em>"What..."</em> or <em>"It was..."</em>) to emphasize the indicated element:</div>
+            <ol>
+                <li>The widespread availability of the vernacular Bible destabilized ecclesiastical authority. [Emphasize: the widespread availability]<br>
+                &rarr; <strong>It was</strong> <input type="text" class="input-inline" style="width: 70%;" data-answer="the widespread availability of the vernacular Bible that" placeholder="..."> destabilized ecclesiastical authority.</li>
+                
+                <li>Scholars find Spenser's fusion of Arthurian myth and Tudor propaganda particularly fascinating. [Emphasize: the fusion]<br>
+                &rarr; <strong>What</strong> scholars find particularly fascinating <input type="text" class="input-inline" style="width: 55%;" data-answer="is Spenser's fusion of" placeholder="..."> Arthurian myth and Tudor propaganda.</li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Exercise 4.3: Subjunctive & Counterfactual Conditionals</div>
+            <div class="instruction">Complete the hypothetical historical statements using appropriate conditional forms:</div>
+            <ol>
+                <li>Had Christopher Marlowe not been murdered in a Deptford tavern in 1593, he <input type="text" class="input-inline" data-answer="might have rivalled" placeholder="might / rival..."> Shakespeare's theatrical supremacy.</li>
+                <li>Were Faustus <input type="text" class="input-inline" data-answer="to discard" placeholder="to / discard..."> his necromantic volumes, the Good Angel assured him that mercy remained accessible.</li>
+                <li>Had Henry VIII retained his allegiance to the papacy, the course of English vernacular literature <input type="text" class="input-inline" data-answer="would have been" placeholder="would / be..."> radically altered.</li>
+            </ol>
+            <button class="btn-check" onclick="checkExercise(this)">Check Answers</button>
+            <div class="feedback-msg"></div>
+        </div>
+    </div>
+
+    <!-- 5. SPEAKING & PHILOSOPHICAL DEBATE -->
+    <div class="section-card">
+        <div class="section-header">
+            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+            <div class="section-title">5. Critical Discussion & Philosophical Synthesis (Speaking)</div>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Task 5.1: The Faustian Paradox: Liberation or Spiritual Catastrophe?</div>
+            <div class="instruction">Prepare an oral argument (2–3 minutes) defending one of the two perspectives. Employ at least three Target Vocabulary terms and one Inversion structure:</div>
+            <ul>
+                <li><strong>Perspective A (The Humanist Martyr):</strong> Faustus is the tragic hero of the intellect. He refuses the stagnant limits of medieval scholasticism and seeks omniscience; his damnation reveals the terrifying intolerance of cosmic orthodoxy.</li>
+                <li><strong>Perspective B (The Cautionary Tale of Hubris):</strong> Faustus is not a true scholar, but a narcissist blinded by pride. His magical omnipotence quickly degenerates into petty parlor tricks (taunting the Pope, demanding grapes in winter), proving that intellect devoid of moral foundation leads to debasement.</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <div class="exercise-title">Task 5.2: The Architecture of Courtly Power</div>
+            <div class="instruction">Discuss with your tutor:</div>
+            <ul>
+                <li>Why was poetry considered an indispensable political weapon at the court of Elizabeth I?</li>
+                <li>Examine how writers like Spenser and Wyatt navigated the treacherous line between genuine artistic expression, aesthetic dissimulation, and courtly survival.</li>
+                <li>Can modern political discourse be compared to the coded, hyperbolic rhetoric of the Tudor court?</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // LocalStorage Auto-Save
+    document.addEventListener("DOMContentLoaded", function () {
+        const inputs = document.querySelectorAll(".input-inline, .essay-input");
+        inputs.forEach((input, index) => {
+            const savedValue = localStorage.getItem("renaissance_lesson_input_" + index);
+            if (savedValue) {
+                input.value = savedValue;
+            }
+            input.addEventListener("input", function () {
+                localStorage.setItem("renaissance_lesson_input_" + index, input.value);
+            });
+        });
+    });
+
+    // Interactive Answer Checking
+    function checkExercise(btn) {
+        const container = btn.closest(".exercise");
+        const inputs = container.querySelectorAll(".input-inline");
+        const feedback = container.querySelector(".feedback-msg");
+        let allCorrect = true;
+        let answeredCount = 0;
+
+        inputs.forEach(input => {
+            const expected = input.getAttribute("data-answer").trim().toLowerCase();
+            const actual = input.value.trim().toLowerCase();
+
+            if (actual.length > 0) {
+                answeredCount++;
+            }
+
+            if (actual === expected) {
+                input.classList.remove("incorrect");
+                input.classList.add("correct");
+            } else {
+                input.classList.remove("correct");
+                input.classList.add("incorrect");
+                allCorrect = false;
+            }
+        });
+
+        feedback.classList.add("show");
+        if (allCorrect && answeredCount === inputs.length) {
+            feedback.className = "feedback-msg show good";
+            feedback.textContent = "All answers are correct and academically precise.";
+        } else {
+            feedback.className = "feedback-msg show bad";
+            feedback.textContent = "Some answers need correction. Check your spelling or grammatical form.";
+        }
+    }
+</script>
+
+</body>
+</html>
